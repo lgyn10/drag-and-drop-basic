@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Fimal Space Characters</h1>
+      <h1>Drag and Drop Characters</h1>
       <DragDropContext onDragEnd={handleEnd}>
         <Droppable droppableId='characters'>
           {(provided) => {
