@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+.clone {
+  opacity: 0.5;
+  position: fixed;
+  visibility: hidden;
+}
+.characters li.dragging {
+  color: red;
+  opacity: 0.5;
+}
+
+.none {
+  visibility: hidden;
+}

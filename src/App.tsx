@@ -39,16 +39,28 @@ function App() {
               <ul className='characters' {...provided.droppableProps} ref={provided.innerRef}>
                 {characters.map((item, idx) => (
                   <Draggable key={item.id} draggableId={item.id} index={idx}>
-                    {(provided) => {
+                    {(provided, snapshot) => {
                       return (
-                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <p>{item.name}</p>
-                        </li>
+                        <>
+                          <li
+                            className={snapshot.isDragging ? 'dragging' : ''}
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                          >
+                            <p>{item.name}</p>
+                          </li>
+                          {snapshot.isDragging && (
+                            <li className='clone'>
+                              <p>{item.name}</p>
+                            </li>
+                          )}
+                        </>
                       );
                     }}
                   </Draggable>
                 ))}
-                {provided.placeholder}
+                <div className='none'>{provided.placeholder}</div>
               </ul>
             );
           }}
